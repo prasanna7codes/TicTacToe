@@ -8,6 +8,8 @@
 import React, { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  FlatList,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
@@ -26,6 +28,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Icons from './components/Icons';
 
 
 
@@ -100,7 +103,7 @@ function App(): React.JSX.Element {
     }
 
 
-  const OnChangeItem = (itemNumber:number) => {
+  const onChangeItem = (itemNumber:number) => {
 
       if (gameWinner) {
         return Snackbar.show({
@@ -133,7 +136,7 @@ function App(): React.JSX.Element {
   return (
    <SafeAreaView>
 
-{gameWinner ? (
+  {gameWinner ? (
         <View style={[styles.playerInfo, styles.winnerInfo]}>
           <Text style={styles.winnerTxt}>{gameWinner}</Text>
         </View>
@@ -145,41 +148,31 @@ function App(): React.JSX.Element {
         ]}
         >
           <Text style={styles.gameTurnTxt}>
-            Player {isCross? 'X' : 'O'}'s Turn
+            Player {isCross ? 'X' : 'O'}'s Turn
           </Text>
         </View>
       )}
 
 
+<FlatList
+      numColumns={3}
+      data={gameState}
+      style={styles.grid}
+      renderItem={({item, index}) => (
+        <Pressable
+        key={index}
+        style={styles.card}
+        onPress={() => onChangeItem(index)}
+        >
+          <Icons name={item} />
+        </Pressable>
+      )}
+      />    
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   </SafeAreaView>
+</SafeAreaView>
   );
 }
 

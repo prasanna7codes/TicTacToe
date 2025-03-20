@@ -13,7 +13,7 @@ const Icons = ({name}:IconsProps)=> {
     
 
     case 'cross':
-            return < Icon name="cross" size={38} iconStyle="solid"/>
+            return < Icon name="xmark" size={38} iconStyle="solid"/>
             
 
     default:
