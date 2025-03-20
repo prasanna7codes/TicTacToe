@@ -14,7 +14,8 @@
     "@react-native-vector-icons/evil-icons": "^1.10.1",
     "@react-native-vector-icons/fontawesome6": "^6.7.1",
     "react": "19.0.0",
-    "react-native": "0.78.1"
+    "react-native": "0.78.1",
+    "react-native-snackbar": "^2.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
