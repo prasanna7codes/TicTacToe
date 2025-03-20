@@ -160,13 +160,14 @@ function App(): React.JSX.Element {
       style={styles.grid}
       renderItem={({item, index}) => (
         <Pressable
-        key={index}
+        
         style={styles.card}
         onPress={() => onChangeItem(index)}
         >
           <Icons name={item} />
         </Pressable>
       )}
+      keyExtractor={(item, index) => index.toString()}
       />    
 
 <Pressable
